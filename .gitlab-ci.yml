@@ -5,7 +5,7 @@ stages:
 
 production:
   type: deploy
-  stage: production
+  stage: deploy
   image: ruby:latest
   script:
     - apt-get update -qy

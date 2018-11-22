@@ -1,15 +1,14 @@
 const Sequelize = require('sequelize')
 
-const connect = ({
-  database,
-  username,
-  password,
-  host,
-}) => new Sequelize(database, username, password, {
-  dialect: 'mysql',
-  port: 3306,
-  host,
-  database
-})
+const connect = new Sequelize(
+  process.env.DB_NAME,
+  process.env.DB_USERNAME,
+  process.env.DB_PASSWORD,
+  {
+    dialect: 'mysql',
+    port: 3306,
+    host: process.env.DB_HOST
+  }
+)
 
 module.exports = connect

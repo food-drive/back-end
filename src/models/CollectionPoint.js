@@ -1,7 +1,8 @@
+const connection = require('../connection')
 const Sequelize = require('sequelize');
 
-const CollectionPoint = sequelize => 
-  sequelize.define('collectionPoint', {
+module.exports =
+  connection.define('collectionPoint', {
     id: {
       primaryKey: true,
       type: Sequelize.INTEGER
@@ -21,5 +22,3 @@ const CollectionPoint = sequelize =>
     createdAt: false,
     updatedAt: false
   })
-
-  module.exports = CollectionPoint

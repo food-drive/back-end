@@ -3,6 +3,7 @@ const express = require('express');
 const path = require('path');
 const session = require('cookie-session')
 const bodyParser = require('body-parser')
+const cookieParser = require('cookie-parser')
 
 const getCollectionPoints = require('./actions/getCollectionPoints')
 const login = require('./actions/login')
@@ -27,6 +28,7 @@ app
   }
 }))
 .use(bodyParser.json())
+.use(cookieParser())
 .get('/health', (req, res) => {
   res.sendStatus(200);
 })

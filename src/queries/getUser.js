@@ -11,7 +11,7 @@ module.exports = ({ username, password }) => {
   return User.findOne({
     where: params
   })
-  .then(user => {
-    return user || Promise.reject('user not found')
-  })
+    .then(user => {
+      return user || Promise.reject('user not found')
+    })
 }

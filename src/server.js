@@ -5,6 +5,7 @@ const bodyParser = require('body-parser')
 const bearerToken = require('express-bearer-token')
 
 const getCollectionPoints = require('./actions/getCollectionPoints')
+const getFoodDrives = require('./actions/getFoodDrives')
 const login = require('./actions/login')
 const logout = require('./actions/logout')
 
@@ -32,5 +33,6 @@ app
   .post('/login', login)
   .get('/logout', logout)
   .get('/collectionPoints', isAuthorized, getCollectionPoints)
+  .get('/foodDrives', isAuthorized, getFoodDrives)
 
 module.exports = app

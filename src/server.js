@@ -27,12 +27,12 @@ app
   }))
   .use(bearerToken())
   .use(bodyParser.json())
-  .get('/health', (req, res) => {
+  .get(`${process.env.API_PATH}/health`, (req, res) => {
     res.sendStatus(200)
   })
-  .post('/login', login)
-  .get('/logout', logout)
-  .get('/collectionPoints', isAuthorized, getCollectionPoints)
-  .get('/foodDrives', isAuthorized, getFoodDrives)
+  .post(`${process.env.API_PATH}/login`, login)
+  .get(`${process.env.API_PATH}/logout`, logout)
+  .get(`${process.env.API_PATH}/collectionPoints`, isAuthorized, getCollectionPoints)
+  .get(`${process.env.API_PATH}/foodDrives`, isAuthorized, getFoodDrives)
 
 module.exports = app

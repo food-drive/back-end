@@ -6,6 +6,9 @@ module.exports = (req, res) => {
     username,
     password
   })
-  .then(() => res.sendStatus(200))
+  .then(user => {
+    req.session.user = user
+    res.sendStatus(200)
+  })
   .catch(error => res.status(500).send(error))
 }

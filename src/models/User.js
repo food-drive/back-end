@@ -15,7 +15,7 @@ module.exports =
     api_key: Sequelize.STRING,
     telefono: Sequelize.INTEGER,
     email: Sequelize.STRING,
-    id_area:Sequelize.INTEGER,
+    id_area: Sequelize.INTEGER,
     privilegi: Sequelize.INTEGER,
     attivo: Sequelize.BOOLEAN,
     last_login: Sequelize.DATE

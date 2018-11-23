@@ -9,7 +9,7 @@ module.exports =
     },
     nome: Sequelize.STRING,
     anno: Sequelize.INTEGER,
-    attiva: Sequelize.BOOLEAN
+    attiva: Sequelize.INTEGER
   }, {
     tableName: 'colletta',
     createdAt: false,

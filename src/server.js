@@ -8,6 +8,7 @@ const getCollectionPoints = require('./actions/getCollectionPoints')
 const getFoodDrives = require('./actions/getFoodDrives')
 const login = require('./actions/login')
 const logout = require('./actions/logout')
+const getUserInfo = require('./actions/getUserInfo')
 
 const isAuthorized = require('./middlewares/isAuthorized')
 
@@ -32,6 +33,7 @@ app
   })
   .post(`${process.env.API_PATH}/login`, login)
   .get(`${process.env.API_PATH}/logout`, logout)
+  .get(`${process.env.API_PATH}/userInfo`, isAuthorized, getUserInfo)
   .get(`${process.env.API_PATH}/collectionPoints`, isAuthorized, getCollectionPoints)
   .get(`${process.env.API_PATH}/foodDrives`, isAuthorized, getFoodDrives)
 

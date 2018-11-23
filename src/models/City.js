@@ -1,17 +1,21 @@
 const connection = require('../connection')
 const Sequelize = require('sequelize')
+const Province = require('./Province')
 
-module.exports =
-  connection.define('foodDrive', {
+const City =
+  connection.define('city', {
     id: {
       primaryKey: true,
       type: Sequelize.INTEGER
     },
     nome: Sequelize.STRING,
-    anno: Sequelize.INTEGER,
-    attiva: Sequelize.BOOLEAN
+    id_provincia: Sequelize.INTEGER
   }, {
-    tableName: 'colletta',
+    tableName: 'comuni',
     createdAt: false,
     updatedAt: false
   })
+
+City.belongsTo(Province, { foreignKey: 'id_provincia' })
+
+module.exports = City

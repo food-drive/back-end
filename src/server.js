@@ -17,12 +17,11 @@ const app = express()
 const expiryDate = new Date((Date.now() + 60 * 60 * 1000) * 2)
 
 app
+  .set('trust proxy', true)
   .use(session({
     name: 'session',
     keys: ['key1', 'key2'],
     cookie: {
-      secure: false,
-      httpOnly: false,
       expires: expiryDate
     }
   }))

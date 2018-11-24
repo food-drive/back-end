@@ -21,8 +21,8 @@ app
     name: 'session',
     keys: ['key1', 'key2'],
     cookie: {
-      secure: true,
-      httpOnly: true,
+      secure: false,
+      httpOnly: false,
       expires: expiryDate
     }
   }))

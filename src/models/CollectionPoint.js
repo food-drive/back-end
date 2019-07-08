@@ -15,7 +15,10 @@ const CollectionPoint =
     id_catena: Sequelize.INTEGER,
     indirizzo: Sequelize.STRING,
     id_comune: Sequelize.INTEGER,
-    nome: Sequelize.STRING,
+    name: {
+      field: 'nome',
+      type: Sequelize.STRING,
+    },
     id_area: Sequelize.INTEGER
   }, {
     tableName: 'supermercati',
@@ -25,7 +28,9 @@ const CollectionPoint =
 
 CollectionPoint.belongsTo(FoodDrive, { foreignKey: 'id_colletta' })
 CollectionPoint.belongsTo(Chain, { foreignKey: 'id_catena' })
+Chain.hasMany(CollectionPoint, { foreignKey: 'id_catena' })
 CollectionPoint.belongsTo(City, { foreignKey: 'id_comune' })
+City.hasMany(CollectionPoint, { foreignKey: 'id_comune' })
 CollectionPoint.hasMany(Product, { foreignKey: 'id_supermercato' })
 
 module.exports = CollectionPoint

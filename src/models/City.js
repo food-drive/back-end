@@ -8,14 +8,15 @@ const City =
       primaryKey: true,
       type: Sequelize.INTEGER
     },
-    nome: Sequelize.STRING,
+    name: {
+      field: 'nome',
+      type: Sequelize.STRING,
+    },
     id_provincia: Sequelize.INTEGER
   }, {
     tableName: 'comuni',
     createdAt: false,
     updatedAt: false
   })
-
-City.belongsTo(Province, { foreignKey: 'id_provincia' })
 
 module.exports = City

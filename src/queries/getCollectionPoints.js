@@ -4,6 +4,7 @@ const FoodDrive = require('../models/FoodDrive')
 const Chain = require('../models/Chain')
 const Product = require('../models/Product')
 const City = require('../models/City');
+const Province = require('../models/Province');
 
 const query = params => {
   const { idArea, idColletta, ...rest } = params
@@ -28,7 +29,7 @@ const query = params => {
         },
         {
           model: City,
-          attributes: ['name'],
+          attributes: ['name', ['id_provincia', 'province']],
         },
       ],
       attributes:[

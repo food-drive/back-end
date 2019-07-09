@@ -33,7 +33,7 @@ app
   .post(`${process.env.API_PATH}/login`, login)
   .get(`${process.env.API_PATH}/logout`, logout)
   .get(`${process.env.API_PATH}/userInfo`, isAuthorized, getUserInfo)
-  .get(`${process.env.API_PATH}/collectionPoints`, getCollectionPoints)
+  .get(`${process.env.API_PATH}/collectionPoints`, isAuthorized, getCollectionPoints)
   .get(`${process.env.API_PATH}/foodDrives`, isAuthorized, getFoodDrives)
 
 module.exports = app

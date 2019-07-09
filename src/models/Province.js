@@ -7,7 +7,10 @@ module.exports =
       primaryKey: true,
       type: Sequelize.INTEGER
     },
-    nome: Sequelize.STRING
+    name: {
+      field: 'nome',
+      type: Sequelize.STRING,
+    },
   }, {
     tableName: 'province',
     createdAt: false,

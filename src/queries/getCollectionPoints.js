@@ -7,13 +7,13 @@ const City = require('../models/City');
 const Province = require('../models/Province');
 
 const query = params => {
-  const { idArea, idColletta, ...rest } = params
-  if (idArea && idColletta) {
+  const { idArea, idColletta, ...query } = params
+  if (idColletta) {
     return CollectionPoint.findAll({
       where: {
         id_area: idArea,
         id_colletta: idColletta,
-        ...rest
+        ...query
       },
       group:['collectionPoint.id'],
       include: [{
@@ -29,7 +29,11 @@ const query = params => {
         },
         {
           model: City,
-          attributes: ['name', ['id_provincia', 'province']],
+          attributes: ['name'],
+          include: {
+            model: Province,
+            attributes: ['name'],
+          }
         },
       ],
       attributes:[

@@ -9,15 +9,33 @@ module.exports =
     },
     username: Sequelize.STRING,
     password: Sequelize.STRING,
-    ruolo: Sequelize.STRING,
-    nome: Sequelize.STRING,
-    cognome: Sequelize.STRING,
+    role: {
+      field: 'ruolo',
+      type: Sequelize.STRING,
+    },
+    name: {
+      field: 'nome',
+      type: Sequelize.STRING,
+    },
+    surname: {
+      field: 'cognome',
+      type: Sequelize.STRING,
+    },
     api_key: Sequelize.STRING,
     telefono: Sequelize.INTEGER,
     email: Sequelize.STRING,
-    id_area: Sequelize.INTEGER,
-    privilegi: Sequelize.INTEGER,
-    attivo: Sequelize.BOOLEAN,
+    idArea: {
+      field: 'id_area',
+      type: Sequelize.INTEGER,
+    },
+    privileges: {
+      field: 'privilegi',
+      type: Sequelize.INTEGER,
+    },
+    active: {
+      field: 'attivo',
+      type: Sequelize.BOOLEAN,
+    },
     last_login: Sequelize.DATE
   }, {
     createdAt: false,

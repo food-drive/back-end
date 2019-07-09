@@ -20,6 +20,5 @@ const City =
   })
 
 City.belongsTo(Province, { foreignKey: 'id_provincia' })
-Province.hasMany(City, { foreignKey: 'id_provincia' })
 
 module.exports = City

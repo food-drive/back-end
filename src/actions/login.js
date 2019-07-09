@@ -11,8 +11,8 @@ module.exports = (req, res) => {
   }
   getUser(params)
     .then(user => {
-      const { id, username, ruolo, nome, cognome, email, id_area, privilegi, attivo } = user
-      req.session.user = { id, username, ruolo, nome, cognome, email, id_area, privilegi, attivo }
+      const { id, username, role, name, surname, email, idArea, privileges, active } = user
+      req.session.user = { id, username, role, name, surname, email, idArea, privileges, active }
       const token = jwt.sign(
         req.session.user,
         process.env.JWT_SECRET,

@@ -7,11 +7,23 @@ const Product =
       primaryKey: true,
       type: Sequelize.INTEGER
     },
-    id_supermercato: Sequelize.INTEGER,
-    prodotto: Sequelize.INTEGER,
+    idCollectionPoint: {
+      field: 'id_supermercato',
+      type: Sequelize.INTEGER,
+    },
+    type: {
+      field: 'prodotto',
+      type: Sequelize.INTEGER,
+    },
     kg: Sequelize.STRING,
-    scatole: Sequelize.INTEGER,
-    carico: Sequelize.INTEGER,
+    boxes: {
+      field: 'scatole',
+      type: Sequelize.INTEGER,
+    },
+    load: {
+      field: 'carico',
+      type: Sequelize.INTEGER,
+    },
     ultima_modifica: Sequelize.DATE
   }, {
     tableName: 'prodotti',

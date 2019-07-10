@@ -4,7 +4,6 @@ const FoodDrive = require('./FoodDrive')
 const Chain = require('./Chain')
 const City = require('./City')
 const Product = require('./Product')
-// const Province = require('./Province')
 
 const CollectionPoint =
   connection.define('collectionPoint', {
@@ -34,6 +33,6 @@ const CollectionPoint =
 CollectionPoint.belongsTo(FoodDrive, { foreignKey: 'id_colletta' })
 CollectionPoint.belongsTo(Chain, { foreignKey: 'id_catena' })
 CollectionPoint.belongsTo(City, { foreignKey: 'id_comune' })
-CollectionPoint.hasMany(Product, { foreignKey: 'id_supermercato' })
+CollectionPoint.hasMany(Product, { foreignKey: 'idCollectionPoint' })
 
 module.exports = CollectionPoint

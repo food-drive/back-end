@@ -8,7 +8,6 @@ const Province = require('../models/Province');
 
 const query = params => {
   const { idArea, idEvent, ...query } = params
-  // console.log(idEvent, params)
   if (idEvent) {
     return CollectionPoint.findAll({
       where: {

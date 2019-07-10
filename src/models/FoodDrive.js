@@ -5,11 +5,20 @@ module.exports =
   connection.define('foodDrive', {
     id: {
       primaryKey: true,
-      type: Sequelize.INTEGER
+      type: Sequelize.INTEGER,
     },
-    nome: Sequelize.STRING,
-    anno: Sequelize.INTEGER,
-    attiva: Sequelize.INTEGER
+    name: {
+      field: 'nome',
+      type: Sequelize.STRING,
+    },
+    year: {
+      field: 'anno',
+      type: Sequelize.INTEGER,
+    },
+    active: {
+      field: 'attiva',
+      type: Sequelize.INTEGER,
+    },
   }, {
     tableName: 'colletta',
     createdAt: false,

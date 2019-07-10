@@ -8,7 +8,7 @@ const Province = require('../models/Province');
 
 const query = params => {
   const { idArea, idEvent, ...query } = params
-  console.log(params)
+  // console.log(idEvent, params)
   if (idEvent) {
     return CollectionPoint.findAll({
       where: {
@@ -16,10 +16,8 @@ const query = params => {
         idEvent,
         ...query
       },
-      group:['collectionPoint.id'],
-      include: [{
-        model: Product, attributes: []
-      },
+      include: [
+        Product,
         {
           model: FoodDrive,
           attributes: ['id'],
@@ -41,8 +39,6 @@ const query = params => {
         'id',
         'name',
         ['indirizzo', 'address'],
-        [sequelize.fn('sum', sequelize.col('products.kg')), 'kg'],
-        [sequelize.fn('sum', sequelize.col('products.scatole')), 'boxes'],
       ],
     })
   } else {

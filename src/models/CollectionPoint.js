@@ -13,6 +13,10 @@ const CollectionPoint =
       type: Sequelize.INTEGER
     },
     id_supermercato: Sequelize.INTEGER,
+    idEvent: {
+      field: 'id_colletta',
+      type: Sequelize.INTEGER,
+    },
     id_catena: Sequelize.INTEGER,
     indirizzo: Sequelize.STRING,
     id_comune: Sequelize.INTEGER,

@@ -1,9 +1,9 @@
 const ProductType = require('../models/ProductType')
 
-const query = ({ idColletta }) =>
+const query = ({ idEvent }) =>
   ProductType.findAll({
     where: {
-      id_colletta: idColletta
+      idEvent
     }
   })
 

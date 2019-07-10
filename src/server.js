@@ -5,6 +5,8 @@ const bodyParser = require('body-parser')
 const bearerToken = require('express-bearer-token')
 
 const getCollectionPoints = require('./actions/getCollectionPoints')
+const getProductTypes = require('./actions/getProductTypes')
+const getReport = require('./actions/getReport')
 const getFoodDrives = require('./actions/getFoodDrives')
 const login = require('./actions/login')
 const logout = require('./actions/logout')
@@ -34,6 +36,8 @@ app
   .get(`${process.env.API_PATH}/logout`, logout)
   .get(`${process.env.API_PATH}/userInfo`, isAuthorized, getUserInfo)
   .get(`${process.env.API_PATH}/collectionPoints`, isAuthorized, getCollectionPoints)
+  .get(`${process.env.API_PATH}/report`, isAuthorized, getReport)
   .get(`${process.env.API_PATH}/foodDrives`, isAuthorized, getFoodDrives)
+  .get(`${process.env.API_PATH}/productTypes`, isAuthorized, getProductTypes)
 
 module.exports = app

@@ -7,9 +7,18 @@ const ProductType =
       primaryKey: true,
       type: Sequelize.INTEGER
     },
-    id_colletta: Sequelize.INTEGER,
-    nome: Sequelize.STRING,
-    ordine: Sequelize.INTEGER
+    idEvent: {
+      field: 'id_colletta',
+      type: Sequelize.INTEGER,
+    },
+    name: {
+      field: 'nome',
+      type: Sequelize.STRING,
+    },
+    order: {
+      field: 'ordine',
+      type: Sequelize.INTEGER,
+    }
   }, {
     tableName: 'prodotti_tipi',
     createdAt: false,

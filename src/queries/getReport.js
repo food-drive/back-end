@@ -7,11 +7,11 @@ const City = require('../models/City');
 const Province = require('../models/Province');
 
 const query = params => {
-  const { idArea, idEvent, ...query } = params
+  const { idEvent, ...query } = params
+  console.log(params)
   if (idEvent) {
     return CollectionPoint.findAll({
       where: {
-        id_area: idArea,
         idEvent,
         ...query
       },

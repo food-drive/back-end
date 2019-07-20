@@ -4,18 +4,10 @@ const { haveItPlain } = require('../utils');
 
 module.exports = async (req, res) => {
   const { query: { idArea, ...query } } = req;
-  if (req.session.user.privileges >= 1) {
+  if (req.session.user.privileges > 1) {
     query.idArea = idArea;
   }
   const values = { kg: 0, boxes: 0 };
-
-  const defaultColumns = [{
-    headerName: 'Nome', field: 'name', filter: true,
-  }, {
-    headerName: 'Indirizzo', field: 'address', filter: true,
-  }, {
-    headerName: 'Citta`', field: 'city.name', filter: true,
-  }];
 
   const totalCol = {
     headerName: 'Totale',
@@ -27,11 +19,13 @@ module.exports = async (req, res) => {
     ],
   };
 
-  const formatReportRow = ({ products, ...row }) => ({
+  const formatReportRow = ({ products, city: { name: cityName, province: { name: provinceName }}, ...row }) => ({
     ...row,
+    city: cityName,
+    province: provinceName,
     products: (products.length && products.reduce((obj, { type, kg, boxes }) => {
       if (!obj[type]) obj[type] = { ...values };
-      obj[type].kg += kg;
+      obj[type].kg = parseFloat((obj[type].kg + kg).toFixed(2));
       obj[type].boxes += boxes;
       obj.total.kg = parseFloat((obj.total.kg + kg).toFixed(2));
       obj.total.boxes += boxes;
@@ -55,7 +49,6 @@ module.exports = async (req, res) => {
     .then(formatReport)
 
   const header = [
-    ...defaultColumns,
     ...productTypes
       .sort((a, b) => a < b)
       .map(({ name }) => ({
